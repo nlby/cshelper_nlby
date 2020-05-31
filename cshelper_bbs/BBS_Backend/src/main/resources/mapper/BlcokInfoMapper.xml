@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hhu.bbs.dao.BlockDao">
+    <resultMap id="block" type="com.hhu.bbs.entity.Block">
+        <id property="id" column="id"/>
+        <result property="adminUserId" column="admin_user_id"/>
+        <result property="name" column="name"/>
+        <result property="icon" column="icon"/>
+        <result property="description" column="description"/>
+        <collection property="categories" ofType="com.hhu.bbs.entity.Category">
+            <id property="id" column="category_id"/>
+            <result property="name" column="category_name"/>
+            <result property="description" column="category_description"/>
+        </collection>
+    </resultMap>
+
+    <select id ="findAllBlockInfo" resultType="com.hhu.bbs.entity.info.BlockInfo">
+      select block.id, block.admin_user_id, user.id adminId, user.nickname adminName, block.name, block.icon, count(distinct category.id) category_sum, count(post.id) post_sum ,max(post.update_time) update_time from
+      (select id, name, icon, admin_user_id, status from block where status = 1) block
+      left join (select id, block_id, status from category where status = 1) category on block.id = category.block_id and category.status = 1
+      left join (select id, category_id, update_time from post where status != 0) post on category.id = post.category_id
+      left join (select id, nickname from user) user on block.admin_user_id = user.id
+      where block.status = 1
+      group by block.id;
+    </select>
+
+    <select id="getBlockById" resultMap="block">
+      select block.id, block.admin_user_id, block.name, block.icon, block.description, category.id category_id, category.name category_name, category.description category_description
+      from block
+      left join category on block.id = category.block_id and category.status = 1
+      where block.id = #{id}
+    </select>
+
+</mapper>

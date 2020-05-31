@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hhu.bbs.dao.PostDao">
+
+    <select id ="findAllPostInfoByCategoryId" resultType="com.hhu.bbs.entity.info.PostInfo">
+     select p.id id, p.title title, u.id userId, u.nickname nickname, u.avatar avatar, p.status status, count(s.id) favorite_sum, count(c.id) comment_sum, p.update_time updateTime from
+     (select id,category_id,title,user_id,status,update_time from post where status != 0) p
+     left join (select id, nickname, avatar from user) u on p.user_id=u.id
+     left join (select id, post_id from star)s on s.post_id = p.id
+     left join (select id, post_id, status from comment where status = 1 ) c on c.post_id = p.id
+      where p.category_id=#{id}
+     group by p.id
+     order by status desc, ${sortType} desc
+     limit #{startIndex}, #{pageSize};
+    </select>
+
+    <select id ="findAllPostInfoByBlockId" resultType="com.hhu.bbs.entity.info.PostInfo">
+
+select p.id id, p.title title, u.id userId, u.nickname nickname, u.avatar avatar, p.status status, count(s.id) favorite_sum, count(c.id) comment_sum, p.update_time updateTime from
+     (select id,category_id,title,user_id,status,update_time from post where status != 0) p
+     left join (select id, nickname, avatar from user) u on p.user_id=u.id
+     left join (select id, post_id from star)s on s.post_id = p.id
+     left join (select id, post_id, status from comment where status = 1 ) c on c.post_id = p.id
+     left join (select id, block_id from category where status = 1) cc on p.category_id = cc.id
+     where  cc.block_id = #{id}
+     group by p.id
+     order by status desc, ${sortType} desc
+     limit #{startIndex}, #{pageSize};
+
+    </select>
+
+    <select id ="findAllPostInfoByUserId" resultType="com.hhu.bbs.entity.info.PostInfo">
+     select p.id id, p.title title, u.id userId, u.nickname nickname, u.avatar, p.status status ,count(s.id) favorite_sum,count(c.id) comment_sum,p.update_time updateTime from
+     (select id, category_id, title, user_id, status, update_time from post where status != 0 and category_id != 1) p
+     left join (select id, nickname, avatar from user) u on p.user_id=u.id
+     left join (select id, post_id from star)s on s.post_id = p.id
+     left join (select id, post_id, status from comment where status = 1) c on c.post_id = p.id
+     where u.id=#{id}
+     group by p.id
+     order by status desc, ${sortType} desc
+     limit #{startIndex}, #{pageSize};
+    </select>
+
+    <select id ="findAllPostInfoByFavoriteId" resultType="com.hhu.bbs.entity.info.PostInfo">
+     select p.id id, p.title title, u.id userId, u.nickname nickname, u.avatar, p.status status ,count(s.id) favorite_sum,count(c.id) comment_sum,p.update_time updateTime from
+     star, favorite,
+     (select id, category_id, title, user_id, status, update_time from post where status != 0) p
+     left join (select id, nickname, avatar from user) u on p.user_id=u.id
+     left join (select id, post_id from star)s on s.post_id = p.id
+     left join (select id, post_id, status from comment where status = 1) c on c.post_id = p.id
+     where favorite.id = #{id} and star.favorite_id = favorite.id and star.post_id = p.id
+     group by p.id
+     order by status desc, ${sortType} desc
+     limit #{startIndex}, #{pageSize};
+    </select>
+
+    <select id ="findAllPostInfoByKeyword" resultType="com.hhu.bbs.entity.info.PostInfo">
+     select p.id id, p.title title, u.id userId, u.nickname nickname, u.avatar, p.status status ,count(s.id) favorite_sum,count(c.id) comment_sum,p.update_time updateTime from
+     star, favorite,
+     (select id, category_id, title, content, user_id, status, update_time from post where status != 0) p
+     left join (select id, nickname, avatar from user) u on p.user_id=u.id
+     left join (select id, post_id from star)s on s.post_id = p.id
+     left join (select id, post_id, status from comment where status = 1) c on c.post_id = p.id
+     where nickname like #{keyword} or p.title like #{keyword} or p.content like #{keyword} and star.favorite_id = favorite.id and star.post_id = p.id
+     group by p.id
+     order by status desc, ${sortType} desc
+     limit #{startIndex}, #{pageSize};
+    </select>
+
+
+    <select id ="findQuestionByUserId" resultType="com.hhu.bbs.entity.info.PostInfo">
+     select p.id id, p.title title, u.id userId, u.nickname nickname, u.avatar, p.status status ,count(s.id) favorite_sum,count(c.id) comment_sum,p.update_time updateTime from
+     (select id,category_id, title, user_id, status, update_time from post where status != 0) p
+     left join (select id, nickname, avatar from user) u on p.user_id=u.id
+     left join (select id, post_id from star)s on s.post_id = p.id
+     left join (select id, post_id, status from comment where status = 1) c on c.post_id = p.id
+     where u.id=#{id} and p.category_id =1
+     group by p.id
+     order by status desc, ${sortType} desc
+     limit #{startIndex}, #{pageSize};
+    </select>
+
+    <resultMap id="postInfo" type="com.hhu.bbs.entity.Post">
+        <id column = "p_id" property="id"></id>
+        <result column="p_title" property="title"></result>
+        <result column = "p_status" property="status"></result>
+        <result column = "p_content" property="content"></result>
+        <result column = "p_update_time" property="updateTime"></result>
+        <result column = "p_category_id" property ="categoryId"></result>
+        <association property="userInfo" javaType="com.hhu.bbs.entity.info.UserInfo"
+                     column="p_userId" select="getUserInfoMap">
+        </association>
+        <collection property="comments" ofType="com.hhu.bbs.entity.Comment">
+            <id column="c_id" property="id"></id>
+            <result column="c_status" property="status"></result>
+            <result column="c_update_time" property="updateTime"></result>
+            <result column="c_content" property="content"></result>
+            <association property="userInfo" javaType="com.hhu.bbs.entity.info.UserInfo"
+                         column="c_userId" select="getUserInfoMap">
+            </association>
+            <collection property="replies" ofType="com.hhu.bbs.entity.Reply">
+                <id column="r_id" property="id"></id>
+                <result column="r_create_time" property="createTime"></result>
+                <result column="r_update_time" property="updateTime"></result>
+                <result column="r_content" property="content"></result>
+                <association property="userInfo" javaType="com.hhu.bbs.entity.info.UserInfo"
+                             column="r_userId" select="getUserInfoMap">
+                </association>
+            </collection>
+        </collection>
+    </resultMap>
+
+    <select id="getPostById" resultMap="postInfo">
+  select
+   p.id p_id ,
+   p.title p_title,
+   p.status p_status,
+   p.content p_content,
+   p.update_time p_update_time,
+   p.category_id p_category_id,
+   p.user_id p_userId,
+   c.id c_id,
+   c.status c_status,
+   c.update_time c_update_time,
+   c.content c_content,
+   c.user_id c_userId,
+   r.id r_id,
+   r.status r_status,
+   r.create_time r_create_time ,
+   r.update_time r_update_time ,
+   r.content r_content,
+   r.user_id r_userId
+   from post p
+   left join comment c on p.id = c.post_id and c.status = 1
+   left join reply r on r.comment_id=c.id and r.status = 1
+   left join user u on p.user_id=u.id
+   where p.id=#{id} and p.status != 0 ;
+ </select>
+
+    <select id ="getUserInfoMap" resultType="com.hhu.bbs.entity.info.UserInfo">
+           select id ,nickname, avatar, exp, status from user
+            where id=#{user_id};
+     </select>
+
+
+</mapper>
