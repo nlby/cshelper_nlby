@@ -1,0 +1,68 @@
+<resources>
+    <string name="app_name">cshelper</string>
+    <string name="search">Search</string>
+    <string name="setting">Setting</string>
+    <string name="share">Share</string>
+
+    <string name="navigation_drawer_open">navigation_drawer_open</string>
+    <string name="navigation_drawer_close">navigation_drawer_close</string>
+
+
+
+
+    <!--Loading-->
+    <string name="load_msg">正在加载中&#8230;</string>
+    <string name="load_update">正在修改中&#8230;</string>
+    <string name="load_delete">正在删除中&#8230;</string>
+    <string name="load_send_code">正在发送验证码&#8230;</string>
+    <string name="load_verify">正在验证中&#8230;</string>
+    <string name="load_switch">正在切换中&#8230;</string>
+    <string name="load_login">正在登录中&#8230;</string>
+    <string name="load_sign">正在注册中&#8230;</string>
+
+
+
+
+
+    <!-- dyh -->
+    <string name="toolbar_title">note</string>
+    <string name="notwork">啊哈，此功能还没实现^_^</string>
+    <string name="toolbar_search">搜索</string>
+    <string name="toolbar_sort">排序</string>
+    <string name="toolbar_switch">模式切换</string>
+    <string name="toolbar_settings">设置</string>
+    <string name="permission_tip">获取权限</string>
+    <string name="sort_incline">时间升序排序</string>
+    <string name="sort_decline">时间降序排序</string>
+    <string name="et_content_hint">请输入内容</string>
+    <string name="et_title_hint">请输入标题</string>
+    <string name="new_note">新建笔记</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="subtoolbar_title">view</string>
+    <string name="note_save">save</string>
+
+
+    <string name="save_query">是否保存</string>
+    <string name="yes">yes</string>
+    <string name="no">no</string>
+
+
+    <string name="preference_key_theme">preference_key_theme</string>
+    <string name="theme_value_default">theme_default</string>
+    <string name="theme_value_night">theme_night</string>
+    <string name="save_suc">保存成功</string>
+    <string name="note_delete">删除</string>
+    <string name="delete_suc">删除成功</string>
+    <string name="note_album">相册</string>
+    <string name="note_record">录音</string>
+    <string name="note_photo">拍照</string>
+    <string name="need_read_storage_permission">需要您的授权以访问相册</string>
+    <string name="to_be_perfect">有点问题嗷</string>
+    <string name="photo_fail">图片插入失败</string>
+    <string name="photo_permission">插入失败，无读写存储权限，请到权限中心开启</string>
+    <string name="empty_result_info">这个星球上没有你要的东西T_T</string>
+    <string name="search_title">搜索</string>
+    <string name="scene_transition_search">scene_transition_search</string>
+</resources>

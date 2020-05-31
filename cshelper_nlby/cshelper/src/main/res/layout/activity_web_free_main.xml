@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.web.FreeWebActivity">
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.96" />
+
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.viewpager.widget.PagerTabStrip
+            android:id="@+id/tag"
+            android:background="#ffffff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </androidx.viewpager.widget.ViewPager>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/viewPager">
+        <RelativeLayout style="@style/BottomNavItem">
+
+            <ImageView
+                android:id="@+id/btn_add_page"
+                style="@style/BottomNavIcon"
+                android:onClick="onClick"
+                android:contentDescription=""
+                android:src="@drawable/ic_web_plus_square" />
+
+        </RelativeLayout>
+
+        <RelativeLayout style="@style/BottomNavItem">
+
+            <ImageView
+                android:id="@+id/btn_forward"
+                style="@style/BottomNavIcon"
+                android:onClick="onClick"
+                android:contentDescription="前进"
+                android:src="@drawable/ic_web_right" />
+
+        </RelativeLayout>
+
+        <RelativeLayout style="@style/BottomNavItem">
+
+            <ImageView
+                android:id="@+id/btn_star"
+                style="@style/BottomNavIcon"
+                android:onClick="onClick"
+                android:contentDescription="收藏"
+                android:src="@drawable/ic_web_star" />
+
+        </RelativeLayout>
+
+        <RelativeLayout style="@style/BottomNavItem">
+
+            <ImageView
+                android:id="@+id/btn_refresh"
+                style="@style/BottomNavIcon"
+                android:onClick="onClick"
+                android:contentDescription="刷新"
+                android:src="@drawable/ic_web_refresh" />
+
+        </RelativeLayout>
+
+
+        <RelativeLayout style="@style/BottomNavItem">
+
+            <ImageView
+                android:id="@+id/btn_delete_page"
+                style="@style/BottomNavIcon"
+                android:onClick="onClick"
+                android:contentDescription="删除页卡"
+                android:src="@drawable/ic_web_minus_square" />
+
+        </RelativeLayout>
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

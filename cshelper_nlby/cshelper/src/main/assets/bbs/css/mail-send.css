@@ -1,0 +1,171 @@
+body {
+    background-color: #f0f0f0;
+}
+
+.container {
+    width: 1000px;
+    background-color: #fff;
+    margin: 60px auto;
+    border-radius: 4px;
+    border: 1px solid #e6e6e6;
+}
+
+.container:after {
+    display: block;
+    content: "";
+    clear: both;
+}
+
+.main {
+    width: 750px;
+    float: left;
+    border-right: 1px solid #e6e6e6;
+}
+
+.main .title {
+    width: 100%;
+    height: 60px;
+    padding: 0 20px;
+    position: relative;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.main .title h2{
+    color: #444444;
+    line-height: 60px;
+}
+
+.msg-list li {
+    position: relative;
+    padding: 15px 60px;
+}
+
+.msg-list li img {
+    position: absolute;
+    border-radius:4px;
+    left: 18px;
+    top: 15px;
+    width: 32px;
+    height: 32px;
+}
+
+.msg-list .item, .item-rep {
+    background: #f5fafe;
+    border: 1px solid #dcecf9;
+    border-radius: 4px;
+    position: relative;
+    padding: 12px 15px;
+}
+
+.msg-list .item-rep {
+    background-color: #fcf7fe;
+}
+.msg-list .content {
+    font-size: 14px;
+    color: #666666;
+}
+
+.msg-list .content .user {
+    color: #155faa;
+}
+
+.msg-list .time {
+    margin-top: 8px;
+    font-size: 12px;
+    color: #999999;
+}
+
+.main .reply {
+    position: relative;
+    margin-top: 20px;
+    padding: 0 60px;
+}
+
+.main .reply .ta-cmt {
+    resize: none;
+    border-radius: 4px;
+}
+
+.main .reply #rep-button {
+    margin-top: 20px;
+    text-align: right;
+}
+
+.main .reply img {
+    position: absolute;
+    border-radius: 4px;
+    width: 32px;
+    height: 32px;
+    top: 0;
+    right: 18px;
+}
+
+
+.info {
+    width: 248px;
+    float: left;
+    padding: 20px 10px 20px 30px;
+    box-sizing: border-box;
+    background-color: #fff;
+}
+
+.info>div {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.info>div>h3 {
+    color: #444444;
+    margin-bottom: 8px;
+}
+
+.info .function a span {
+    margin-right: 15px;
+}
+.info .function a {
+    display: block;
+    width: 100%;
+    padding-left: 10px;
+    line-height: 30px;
+    color: #666;
+    font-size: 14px;
+    border-radius: 4px;
+}
+
+.info .function a:hover {
+    background-color: #f5f5f5;
+}
+
+.info .relative li {
+    line-height: 18px;
+    margin-top: 8px;
+}
+
+.info .relative li a {
+    font-size: 13px;
+}
+
+.post-item {
+    margin-top: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.post-item a {
+    font-size: 15px;
+    color: #155faa;
+}
+
+.post-item a:hover {
+    color: #499ef3;
+}
+
+.post-item p {
+    margin-top: 8px;
+    color: #666666;
+    font-size: 13px;
+}
+.top {
+	background-color: #3C3F41
+}

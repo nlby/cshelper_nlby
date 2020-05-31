@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>发布</title>
+    <link rel="stylesheet" href="../css/amazeui.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/send.css">
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script src="../js/amazeui.min.js"></script>
+    <script src="../js/base.js"></script>
+    <script src="../js/send.js"></script>
+</head>
+<body>
+
+    <div class="header top">
+    <header class="am-topbar am-topbar-inverse in top">
+        <h1 class="am-topbar-brand">
+            <a href="../index.html">CSHELPER-BBS</a>
+        </h1>
+        <div class="am-collapse am-topbar-collapse" id="doc-topbar-collapse">
+
+            <div class="search am-topbar-left">
+                <input type="text" placeholder="话题或问题">
+                <span class="am-icon-search"></span>
+            </div>
+
+            <!--注册以及管理员登录-->
+            <div class="am-topbar-right header-unlogin">
+                <a href="register.html">
+                    <button class="am-btn am-btn-primary am-topbar-btn am-btn-sm">注册</button>
+                </a>
+            </div>
+
+            <!--普通用户登录-->
+            <div class="am-topbar-right header-unlogin">
+                <a href="login.html">
+                    <button class="am-btn am-btn-primary am-topbar-btn am-btn-sm">登录</button>
+                </a>
+            </div>
+
+            <!--登录成功后用户模块-->
+            <div class="am-topbar-right header-login" id="user">
+                <div class="am-dropdown" data-am-dropdown="{boundary: '.am-topbar'}">
+
+                    <img src="" class="am-dropdown-toggle" id="usr-avt">
+                    <ul class="am-dropdown-content">
+                        <li><a href="home.html"><span class="am-icon-home myicon"></span>主页</a></li>
+                        <li><a href="mail.html"><span class="am-icon-envelope myicon"></span>私信</a></li>
+                        <li><a href="star.html"><span class="am-icon-star myicon"></span>收藏</a></li>
+                        <li><a href="config.html"><span class="am-icon-cog myicon"></span>设置</a></li>
+                        <li class="admin"><a href="admin.html"><span class="am-icon-user-secret myicon"></span>版块管理</a></li>
+                        <li><a href="../index.html" id="logout"><span class="am-icon-power-off myicon"></span>退出</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!--登录成功后的发帖功能-->
+            <div class="am-topbar-right header-login">
+                <div class="am-dropdown" data-am-dropdown="{boundary: '.am-topbar'}">
+                    <button class="am-btn am-btn-secondary am-topbar-btn am-btn-sm am-dropdown-toggle top">
+                        发布 <span class="am-icon-caret-down"></span>
+                    </button>
+                    <ul class="am-dropdown-content">
+                        <li><a href="send.html">发帖</a></li>
+                        <li><a href="send.html">提问</a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </header>
+</div>
+
+    <div class="container">
+        <div class="main">
+            <div class="title">
+                <h2><span class="am-icon-send-o"></span> 发布</h2>
+                <ul>
+                    <li class="post select">文章</li>
+                    <li class="quest">问题</li>
+                </ul>
+            </div>
+
+            <div class="rtc">
+                <div class="rtc-title">
+                    <h3 class="t">文章标题：</h3>
+                    <h3 class="q">问题标题</h3>
+                    <div>
+                        <input type="text">
+                    </div>
+                </div>
+            </div>
+
+            <div class="post-body">
+                <h3 class="t">文章内容：</h3>
+                <h3 class="q">问题补充</h3>
+                <div class="am-form">
+                    <div class="am-form-group cmt-group">
+                        <textarea class="ta-cmt" rows="16"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!--分类下拉菜单-->
+            <div class="cate t">
+                <h3>选择分类：</h3>
+
+                <select data-am-selected="{dropUp: 1}" id="block"></select>
+
+                <select data-am-selected="{dropUp: 1}" id="cat"></select>
+            </div>
+
+            <div class="pub">
+                <button class="am-btn am-btn-success am-btn-sm am-radius"> 发 布 </button>
+            </div>
+        </div>
+        <div class="info">
+            <div class="guide t">
+                <h3>文章发起指南</h3>
+                <p>
+                    <strong>• 文章标题:</strong>
+                    请用准确的语言描述您发布的文章思想
+                </p>
+                <p>
+                    <strong>• 文章内容:</strong>
+                    详细补充您的文章内容, 并提供一些相关的素材以供参与者更多的了解您所写文章的主题思想
+                </p>
+                <p>
+                    <strong>• 选择分类:</strong>
+                    选择一个合适的分类, 让您发布的文章得到更多有相同兴趣的人参与. 所有人可以在您发布文章之后添加和编辑该文章所属的分类
+                </p>
+            </div>
+
+            <div class="guide q">
+                <h3>问题发起指南</h3>
+                <p>
+                    <strong>• 问题标题:</strong>
+                    请用准确的语言描述您发布的问题思想
+                </p>
+                <p>
+                    <strong>• 问题补充:</strong>
+                    详细补充您的问题内容, 并提供一些相关的素材以供参与者更多的了解您所提问题的主题思想
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        Copyright © 2020 NLBY All Rights Reserved
+    </div>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activity.MainActivity">
+
+
+<!--    <androidx.appcompat.widget.Toolbar-->
+<!--        app:title="@string/subtoolbar_title"-->
+<!--        android:layout_height="?attr/actionBarSize"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:background="@color/sub_toolbar"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        android:id="@+id/sub_toolbar">-->
+
+<!--    </androidx.appcompat.widget.Toolbar>-->
+
+
+    <EditText
+        android:id="@+id/et_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/et_title_size"
+        app:layout_constraintTop_toBottomOf="@+id/sub_toolbar"
+        android:hint="@string/et_title_hint"
+        android:background="@drawable/editor_process"
+        android:textSize="@dimen/text_size2"
+
+
+        />
+
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:id="@+id/et_content"
+        app:layout_constraintTop_toBottomOf="@+id/et_title"
+
+        android:inputType="textMultiLine"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@drawable/editor_process"
+        android:hint="@string/et_content_hint"
+        android:gravity="start"
+        android:textSize="@dimen/text_size2"
+
+
+
+        />
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
