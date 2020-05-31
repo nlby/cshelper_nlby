@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="cshelper_web:war">
+    <output-path>$PROJECT_DIR$/cshelper_web/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>cshelper_web</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="cshelper_back_may.war">
+      <element id="artifact" artifact-name="cshelper_web:war exploded" />
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="cshelper_domian" />
+        <module name="cshelper_web" />
+        <module name="cshelper_utils" />
+        <module name="cshelper_service" />
+        <module name="cshelper_dao" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="cshelper-user" target="1.5" />
+      <module name="cshelper_dao" target="11" />
+      <module name="cshelper_domian" target="11" />
+      <module name="cshelper_service" target="11" />
+      <module name="cshelper_utils" target="11" />
+      <module name="cshelper_web" target="11" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

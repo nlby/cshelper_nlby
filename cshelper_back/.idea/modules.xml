@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/cshelper-user.iml" filepath="$PROJECT_DIR$/.idea/cshelper-user.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cshelper_dao/cshelper_dao.iml" filepath="$PROJECT_DIR$/cshelper_dao/cshelper_dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cshelper_domian/cshelper_domian.iml" filepath="$PROJECT_DIR$/cshelper_domian/cshelper_domian.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cshelper_service/cshelper_service.iml" filepath="$PROJECT_DIR$/cshelper_service/cshelper_service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cshelper_utils/cshelper_utils.iml" filepath="$PROJECT_DIR$/cshelper_utils/cshelper_utils.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cshelper_web/cshelper_web.iml" filepath="$PROJECT_DIR$/cshelper_web/cshelper_web.iml" />
+    </modules>
+  </component>
+</project>
